@@ -21,3 +21,15 @@ http://www.hjmin.com/
 
 MySQL数据库用户名：root（位于src/data/Database.java的第24行） MySQL数据库密码：123（位于src/data/Database.java的第24行）
 MySQL数据库名称：net_ease_music（在运行前需要新建一个该名称的数据库）
+
+## 效果展示
+
+### 推荐歌单页面（首页）
+
+### 搜索页面
+
+### 歌单详情页面
+
+### 我喜欢的音乐
+
+### 播放列表
