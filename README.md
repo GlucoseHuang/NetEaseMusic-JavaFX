@@ -4,6 +4,10 @@
 
 借助[API](http://www.hjmin.com)，利用JavaFX完成一个仿制的网易云音乐PC客户端，具有每日推荐歌单、添加/删除播放列表歌曲、查看各大音乐排行榜、播放音乐、播放MV、收藏音乐、收藏歌单等功能。
 
+## 项目所依赖的API：
+
+http://www.hjmin.com/
+
 ## 效果展示
 
 ### 推荐歌单页面（首页）
@@ -43,10 +47,6 @@ Eclipse IDE for Java Developers：Oxygen.3a Release (4.7.3a)
 json-20201115.jar（org.json）
 
 mysql-connector-java-8.0.21.jar
-
-## 项目所依赖的API【特别致谢】：
-
-http://www.hjmin.com/
 
 ## MySQL配置
 
