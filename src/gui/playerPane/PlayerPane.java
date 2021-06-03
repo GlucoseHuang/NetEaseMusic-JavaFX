@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -393,7 +392,9 @@ public class PlayerPane extends Pane {
 
         // 如果musicSource为空，出现提示窗口，播放下一首歌曲
         if (musicSrc.equals("http://music.163.com/404")) {
-            JOptionPane.showMessageDialog(null, "<html><font size=6>《" + song.getSongName() + "》存在版权问题，暂不提供播放！", "提示", JOptionPane.WARNING_MESSAGE);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(new Label("《" + song.getSongName() + "》存在版权问题，暂不提供播放！"), 500, 100));
+            stage.show();
             return;
         }
 
@@ -534,10 +535,14 @@ public class PlayerPane extends Pane {
         } catch (IndexOutOfBoundsException e) {
             return;
         }
+        System.out.println(mvSource);
 
         // 如果mv源地址为空，则提示暂无mv
         if (mvSource.equals("")) {
-            JOptionPane.showMessageDialog(null, "<html><font size=6>暂无MV！", "提示", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("暂无MV！");
+            Stage stage = new Stage();
+            stage.setScene(new Scene(new Label("暂无MV！"), 100, 100));
+            stage.show();
             return;
         }
 

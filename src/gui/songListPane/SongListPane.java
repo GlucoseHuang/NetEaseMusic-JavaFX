@@ -3,21 +3,17 @@ package gui.songListPane;
 import basic.Playlist;
 import basic.Song;
 import data.DataAPI;
-import gui.playerPane.PlayerPane;
 import gui.leftPane.PlaylistListPane;
+import gui.playerPane.PlayerPane;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
@@ -239,7 +235,9 @@ public class SongListPane extends Pane {
 
         // 如果没有源地址
         if (musicSrc.equals("http://music.163.com/404")) {
-            JOptionPane.showMessageDialog(null, "<html><font size=6>《" + song.getSongName() + "》存在版权问题，暂不提供下载！", "提示", JOptionPane.WARNING_MESSAGE);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(new Label("《" + song.getSongName() + "》存在版权问题，暂不提供下载！"), 500, 100));
+            stage.show();
             return;
         }
 
@@ -253,7 +251,9 @@ public class SongListPane extends Pane {
 
         // 如果http返回值不为200
         if (urlCon.getResponseCode() != HttpURLConnection.HTTP_OK) {
-            JOptionPane.showMessageDialog(null, "<html><font size=6>HTTP连接建立失败，无法下载！", "提示", JOptionPane.WARNING_MESSAGE);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(new Label("HTTP连接建立失败，无法下载！"), 500, 100));
+            stage.show();
             return;
         }
 
@@ -283,7 +283,9 @@ public class SongListPane extends Pane {
         in.close();
 
         // 弹出窗口提示下载成功
-        JOptionPane.showMessageDialog(null, "<html><font size=6>保存路径： " + file.getAbsolutePath(), "下载成功", JOptionPane.INFORMATION_MESSAGE);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(new Label("下载成功，文件保存路径： " + file.getAbsolutePath()), 500, 100));
+        stage.show();
     }
 
     // 获取PlaylistListPane，用于判断是否是收藏的歌曲，收藏歌曲，取消收藏歌曲
