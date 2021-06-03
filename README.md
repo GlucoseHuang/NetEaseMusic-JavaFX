@@ -32,6 +32,7 @@ http://www.hjmin.com/
 
 ## 测试环境
 
+### 环境1
 64位 Windows 10 专业版
 
 IntelliJ IDEA Ultimate 2020.3
@@ -41,6 +42,15 @@ Java 1.8.0_261（包含Javafx）
 MySQL 8.0.19 for Win64
 
 Eclipse IDE for Java Developers：Oxygen.3a Release (4.7.3a)
+
+### 环境2
+macOS Big Sur 11.4 (M1)
+
+IntelliJ IDEA Ultimate 2021.1.2
+
+Java 1.8.0_291（包含Javafx）
+
+MySQL 8.0.25 x86-64 for macOS11
 
 ## 运行所需的额外jar包：（已包含于.\lib中）
 
