@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 // 很多PlaylistPane组成的Pane
 public class PlaylistListPane extends Pane {
@@ -86,7 +87,7 @@ public class PlaylistListPane extends Pane {
     private void initRecommendPlaylist() {
 
         // 实例化推荐歌单playlistPane，设置位置
-        recommendPlaylist = new PlaylistPane(new Image(getClass().getResource("../image/music.png").toExternalForm()), "推荐歌单");
+        recommendPlaylist = new PlaylistPane(new Image(Objects.requireNonNull(getClass().getResource("../image/music.png")).toExternalForm()), "推荐歌单");
         recommendPlaylist.setLayoutY(currentHeight);
 
         // 鼠标单击时切换mainStage的scene
@@ -100,7 +101,7 @@ public class PlaylistListPane extends Pane {
     private void initRank() {
 
         // 实例化排行榜playlistPane，设置位置
-        rank = new PlaylistPane(new Image(getClass().getResource("../image/music.png").toExternalForm()), "排行榜");
+        rank = new PlaylistPane(new Image(Objects.requireNonNull(getClass().getResource("../image/music.png")).toExternalForm()), "排行榜");
         rank.setLayoutY(currentHeight);
 
         // 鼠标单击时切换mainStage的scene，并为topListPane设置stage，scene和songListPane
@@ -128,7 +129,7 @@ public class PlaylistListPane extends Pane {
     private void initFavSong() {
 
         // 实例化我喜欢的音乐playlistPane，设置位置
-        favSong = new PlaylistPane(new Image(getClass().getResource("../image/love.png").toExternalForm()), "我喜欢的音乐");
+        favSong = new PlaylistPane(new Image(Objects.requireNonNull(getClass().getResource("../image/love.png")).toExternalForm()), "我喜欢的音乐");
         favSong.setLayoutY(currentHeight);
 
         // 单击时切换界面
@@ -209,7 +210,7 @@ public class PlaylistListPane extends Pane {
         List<Playlist> favPlaylists = DataAPI.getFavPlaylists();
 
         // 实例化新的playlistPane，并添加到相应位置
-        PlaylistPane playlistPane = new PlaylistPane(new Image(getClass().getResource("../image/playlists.png").toExternalForm()), playlist.getPlaylistName());
+        PlaylistPane playlistPane = new PlaylistPane(new Image(Objects.requireNonNull(getClass().getResource("../image/playlists.png")).toExternalForm()), playlist.getPlaylistName());
         playlistPane.setLayoutY(currentHeight + (favPlaylists.size() - 1) * 30);
 
         // 设置鼠标单击时songListPane.setSongs
@@ -251,7 +252,7 @@ public class PlaylistListPane extends Pane {
             Playlist playlist = favPlaylists.get(i);
 
             // 实例化playlistPane
-            PlaylistPane playlistPane = new PlaylistPane(new Image(getClass().getResource("../image/playlists.png").toExternalForm()), playlist.getPlaylistName());
+            PlaylistPane playlistPane = new PlaylistPane(new Image(Objects.requireNonNull(getClass().getResource("../image/playlists.png")).toExternalForm()), playlist.getPlaylistName());
 
             // 设置位置
             playlistPane.setLayoutY(currentHeight + i * 30);

@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 // 多个块状的播放列表的Pane组成的Pane
 public class PlaylistBlockListPane extends Pane {
@@ -156,7 +157,7 @@ public class PlaylistBlockListPane extends Pane {
     private void initLastPage(double buttonWidthHeight, double initialX) {
 
         // 实例化lastPage
-        lastPage = new ImageView(new Image(getClass().getResource("../image/lastPage.png").toExternalForm()));
+        lastPage = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/lastPage.png")).toExternalForm()));
 
         // 设置大小和位置
         lastPage.setFitWidth(buttonWidthHeight);
@@ -187,7 +188,7 @@ public class PlaylistBlockListPane extends Pane {
     private void initNextPage(double buttonWidthHeight, double buttonGap, double initialX) {
 
         // 实例化nextPage
-        nextPage = new ImageView(new Image(getClass().getResource("../image/nextPage.png").toExternalForm()));
+        nextPage = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/nextPage.png")).toExternalForm()));
 
         // 设置大小和位置
         nextPage.setFitHeight(buttonWidthHeight);

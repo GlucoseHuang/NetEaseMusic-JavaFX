@@ -20,13 +20,15 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import java.util.Objects;
+
 // 弹出窗口，播放MV，仅供PlayerPane使用
 class PlayMV {
 
     // 进度条的三个组件：进度条左半边，进度条右半边，滑块
     private final VBox left = new VBox();
     private final VBox right = new VBox();
-    private final ImageView thumb = new ImageView(new Image(getClass().getResource("../image/mvThumb.png").toExternalForm()));
+    private final ImageView thumb = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/mvThumb.png")).toExternalForm()));
 
     // 其他组件：音量值文本，暂停的图标，关闭的图标
     private Label volumeText;
@@ -82,7 +84,7 @@ class PlayMV {
         // 实例化播放mv的Stage，并展示
         mvStage = new Stage(StageStyle.TRANSPARENT);
         mvStage.setScene(new Scene(new Pane(mediaView)));
-        mvStage.getIcons().add(new Image(getClass().getResource("../image/icon.png").toExternalForm()));
+        mvStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("../image/icon.png")).toExternalForm()));
         mvStage.setTitle(songName);
         mvStage.show();
 
@@ -159,7 +161,7 @@ class PlayMV {
             private void initPause() {
 
                 // 实例化pause
-                pause = new ImageView(getClass().getResource("../image/stopTag.png").toExternalForm());
+                pause = new ImageView(Objects.requireNonNull(getClass().getResource("../image/stopTag.png")).toExternalForm());
 
                 // 设置pause大小
                 pause.setFitWidth(100);
@@ -176,7 +178,7 @@ class PlayMV {
             private void initClose() {
 
                 // 实例化close
-                close = new ImageView(new Image(getClass().getResource("../image/closeMv.png").toExternalForm()));
+                close = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/closeMv.png")).toExternalForm()));
 
                 // 设置位置和大小
                 close.setFitWidth(40);
@@ -187,10 +189,10 @@ class PlayMV {
                 // 鼠标进入和移出事件时，鼠标样式变化，图像变化
                 close.setOnMouseEntered(event -> {
                     close.setCursor(Cursor.HAND);
-                    close.setImage(new Image(getClass().getResource("../image/closeMv_h.png").toExternalForm()));
+                    close.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/closeMv_h.png")).toExternalForm()));
                 });
                 close.setOnMouseExited(event -> {
-                    close.setImage(new Image(getClass().getResource("../image/closeMv.png").toExternalForm()));
+                    close.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/closeMv.png")).toExternalForm()));
                     close.setCursor(Cursor.DEFAULT);
                 });
 

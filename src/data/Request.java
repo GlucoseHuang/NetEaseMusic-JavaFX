@@ -171,7 +171,7 @@ class Request {
 
         // 将读取到的信息写入MySQL中
         db.insertPlaylists(playlists);
-        db.insertDaily_Recommend_Playlist(playlists, page);
+        db.insertDaily_Recommend_Playlist(playlists);
 
         // 返回获取到的最后8个playlist
         return playlists.subList(playlists.size() - 8, playlists.size());
@@ -193,9 +193,9 @@ class Request {
             if ((i != songIDNum - 1) && ids.length() < 1900) {
                 ids.append(",");
             } else {
-                System.out.println("http://www.hjmin.com/song/detail?ids=" + ids.toString());
+                System.out.println("http://www.hjmin.com/song/detail?ids=" + ids);
 
-                String content = getContent("http://www.hjmin.com/song/detail?ids=" + ids.toString());
+                String content = getContent("http://www.hjmin.com/song/detail?ids=" + ids);
                 songs.addAll(ParseJSON.parseSongs(new JSONObject(content).getJSONArray("songs").toString(), true));
 
                 // 清除stringBuilder的内容

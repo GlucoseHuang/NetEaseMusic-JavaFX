@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.sql.SQLException;
+import java.util.Objects;
 
 // 用于启动界面的类，继承Application类
 public class Main extends Application {
@@ -91,7 +92,7 @@ public class Main extends Application {
 
         //设置logo和标题
         titleStage.setTitle(" 网易云音乐");
-        titleStage.getIcons().add(new Image(getClass().getResourceAsStream("../gui/image/icon.png")));
+        titleStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("../gui/image/icon.png"))));
     }
 
     // titleStage配置

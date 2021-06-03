@@ -21,7 +21,7 @@ class Database {
     // 构造方法
     public Database() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/net_ease_music?serverTimezone=GMT%2B8", "root", "123");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/net_ease_music?serverTimezone=GMT%2B8", "root", "123admin");
     }
 
     // 关闭数据库连接
@@ -254,7 +254,7 @@ class Database {
     }
 
     // 向数据库中加入每日推荐的数据
-    public void insertDaily_Recommend_Playlist(List<Playlist> playlists, int page) throws SQLException {
+    public void insertDaily_Recommend_Playlist(List<Playlist> playlists) throws SQLException {
 
         String date = getTodayString();
 

@@ -7,6 +7,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
 
+import java.util.Objects;
+
 // 音量滑动条
 public class VolumeSliderPane extends Pane {
 
@@ -96,7 +98,7 @@ public class VolumeSliderPane extends Pane {
     private void initThumb(double width, double height) {
 
         // 实例化thumb图像
-        thumb = new ImageView(new Image(getClass().getResource("../image/volumeThumb.png").toExternalForm()));
+        thumb = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/volumeThumb.png")).toExternalForm()));
 
         // 设置位置和宽高
         thumb.setFitWidth(height);

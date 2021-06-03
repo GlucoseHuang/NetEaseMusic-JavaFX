@@ -52,6 +52,6 @@ mysql-connector-java-8.0.21.jar
 
 MySQL数据库用户名：root（位于src/data/Database.java的第24行）
 
-MySQL数据库密码：123（位于src/data/Database.java的第24行）
+MySQL数据库密码：123admin（位于src/data/Database.java的第24行）
 
 MySQL数据库名称：net_ease_music（在运行前需要新建一个该名称的数据库）

@@ -11,6 +11,7 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 // 当前播放列表中一首歌的Pane
 public class PlayingSongPane extends Pane {
@@ -105,7 +106,7 @@ public class PlayingSongPane extends Pane {
 
     // 初始化remove
     public void initRemove(Song song, double height, double width) {
-        remove = new ImageView(new Image(getClass().getResource("../image/removeSong.png").toExternalForm()));
+        remove = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/removeSong.png")).toExternalForm()));
 
         // 设置大小和位置
         remove.setFitWidth(22);

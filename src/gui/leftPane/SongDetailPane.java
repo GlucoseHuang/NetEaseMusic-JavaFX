@@ -11,6 +11,7 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 // 歌曲详细列表Pane（左下角的）
 public class SongDetailPane extends Pane {
@@ -101,9 +102,9 @@ public class SongDetailPane extends Pane {
 
         // 实例化favTag，按照song.isFav设定图片内容
         if (DataAPI.isFavSong(song.getSongID())) {
-            favTag = new ImageView((new Image(getClass().getResource("../image/favSong.png").toExternalForm())));
+            favTag = new ImageView((new Image(Objects.requireNonNull(getClass().getResource("../image/favSong.png")).toExternalForm())));
         } else {
-            favTag = new ImageView((new Image(getClass().getResource("../image/notfav.png").toExternalForm())));
+            favTag = new ImageView((new Image(Objects.requireNonNull(getClass().getResource("../image/notfav.png")).toExternalForm())));
         }
 
         // 设定图片位置，长宽
@@ -126,7 +127,7 @@ public class SongDetailPane extends Pane {
                 if (DataAPI.isFavSong(currentSong.getSongID())) {
 
                     // 如果这首歌已经被喜欢，则设为不喜欢
-                    favTag.setImage(new Image(getClass().getResource("../image/notfav.png").toExternalForm()));
+                    favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/notfav.png")).toExternalForm()));
                     try {
                         playlistListPane.removeFavSong(currentSong);
                     } catch (SQLException | IOException e) {
@@ -135,7 +136,7 @@ public class SongDetailPane extends Pane {
                 } else {
 
                     // 如果这首歌未被喜欢，则设为喜欢
-                    favTag.setImage(new Image(getClass().getResource("../image/favSong.png").toExternalForm()));
+                    favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/favSong.png")).toExternalForm()));
                     try {
                         playlistListPane.addFavSong(currentSong);
                     } catch (SQLException | IOException e) {
@@ -159,9 +160,9 @@ public class SongDetailPane extends Pane {
 
         // 按song.isFav设定favTag图像
         if (DataAPI.isFavSong(song.getSongID())) {
-            favTag.setImage(new Image(getClass().getResource("../image/favSong.png").toExternalForm()));
+            favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/favSong.png")).toExternalForm()));
         } else {
-            favTag.setImage(new Image(getClass().getResource("../image/notfav.png").toExternalForm()));
+            favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/notfav.png")).toExternalForm()));
         }
 
         // 设定singer文本内容
@@ -175,9 +176,9 @@ public class SongDetailPane extends Pane {
     public void refreshTavTag() throws SQLException {
         // 按song.isFav设定favTag图像
         if (DataAPI.isFavSong(currentSong.getSongID())) {
-            favTag.setImage(new Image(getClass().getResource("../image/favSong.png").toExternalForm()));
+            favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/favSong.png")).toExternalForm()));
         } else {
-            favTag.setImage(new Image(getClass().getResource("../image/notfav.png").toExternalForm()));
+            favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/notfav.png")).toExternalForm()));
         }
     }
 }

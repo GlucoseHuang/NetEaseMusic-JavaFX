@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 // 播放的Pane，包含播放进度条、暂停按钮、下一首按钮、上一首按钮、音量滑动条、播放MV按钮、显示当前播放列表按钮
 public class PlayerPane extends Pane {
@@ -173,7 +174,7 @@ public class PlayerPane extends Pane {
 
     // 初始化playingSongList
     public void initPlayingSongList() {
-        playingSongList = new ImageView(new Image(getClass().getResource("../image/playlist.png").toExternalForm()));
+        playingSongList = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/playlist.png")).toExternalForm()));
         playingSongList.setFitHeight(18);
         playingSongList.setFitWidth(19);
         playingSongList.setLayoutX(927);
@@ -183,7 +184,7 @@ public class PlayerPane extends Pane {
 
     // 初始化last
     public void initLast() {
-        last = new ImageView(new Image(getClass().getResource("../image/lastSong.png").toExternalForm()));
+        last = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/lastSong.png")).toExternalForm()));
         last.setFitHeight(30);
         last.setFitWidth(30);
         last.setLayoutX(30);
@@ -199,7 +200,7 @@ public class PlayerPane extends Pane {
 
     // 初始化next
     public void initNext() {
-        next = new ImageView(new Image(getClass().getResource("../image/nextSong.png").toExternalForm()));
+        next = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/nextSong.png")).toExternalForm()));
         next.setFitHeight(30);
         next.setFitWidth(30);
         next.setLayoutX(140);
@@ -215,7 +216,7 @@ public class PlayerPane extends Pane {
 
     // 初始化pause
     public void initPause() {
-        pause = new ImageView(new Image(getClass().getResource("../image/pause.png").toExternalForm()));
+        pause = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/pause.png")).toExternalForm()));
         pause.setFitHeight(35);
         pause.setFitWidth(35);
         pause.setLayoutX(85);
@@ -225,7 +226,7 @@ public class PlayerPane extends Pane {
 
     // 初始化volume
     public void initVolume() {
-        volume = new ImageView(new Image(getClass().getResource("../image/volume.png").toExternalForm()));
+        volume = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/volume.png")).toExternalForm()));
         volume.setFitHeight(12);
         volume.setFitWidth(16);
         volume.setLayoutX(692);
@@ -235,7 +236,7 @@ public class PlayerPane extends Pane {
 
     // 初始化playMv
     public void initPlayMv() {
-        playmv = new ImageView(new Image(getClass().getResource("../image/playMv.png").toExternalForm()));
+        playmv = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/playMv.png")).toExternalForm()));
         playmv.setFitHeight(30);
         playmv.setFitWidth(28);
         playmv.setLayoutX(880);
@@ -300,7 +301,7 @@ public class PlayerPane extends Pane {
                         isPlaying = true;
 
                         // 设置播放/暂停ImageView的图像为暂停图像
-                        pause.setImage((new Image(getClass().getResource("../image/pause.png").toExternalForm())));
+                        pause.setImage((new Image(Objects.requireNonNull(getClass().getResource("../image/pause.png")).toExternalForm())));
 
                         // 设置为不需要加载
                         needToLoadMediaPlayer = false;
@@ -458,14 +459,14 @@ public class PlayerPane extends Pane {
         if (isPlaying) {
 
             // 如果正在播放，则暂停，
-            pause.setImage(new Image(getClass().getResource("../image/play.png").toExternalForm()));
+            pause.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/play.png")).toExternalForm()));
             mediaPlayer.pause();
             isPlaying = false;
 
         } else {
 
             // 如果正在暂停，则播放，改变ImageView内容
-            pause.setImage((new Image(getClass().getResource("../image/pause.png").toExternalForm())));
+            pause.setImage((new Image(Objects.requireNonNull(getClass().getResource("../image/pause.png")).toExternalForm())));
             mediaPlayer.play();
             isPlaying = true;
         }
@@ -500,7 +501,7 @@ public class PlayerPane extends Pane {
             // 如果正在静音，则设定音量，并改变ImageView
             volumeSliderPane.setVolumePercent(currentVolume);
             isMuted = false;
-            volume.setImage(new Image(getClass().getResource("../image/volume.png").toExternalForm()));
+            volume.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/volume.png")).toExternalForm()));
 
         } else {
 
@@ -508,7 +509,7 @@ public class PlayerPane extends Pane {
             currentVolume = volumeSliderPane.getVolumeValue();
             volumeSliderPane.setVolumePercent(0);
             isMuted = true;
-            volume.setImage(new Image(getClass().getResource("../image/mute.png").toExternalForm()));
+            volume.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/mute.png")).toExternalForm()));
         }
     }
 
@@ -530,7 +531,7 @@ public class PlayerPane extends Pane {
         }
 
         // 暂停播放音乐
-        pause.setImage(new Image(getClass().getResource("../image/play.png").toExternalForm()));
+        pause.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/play.png")).toExternalForm()));
         mediaPlayer.pause();
         isPlaying = false;
 

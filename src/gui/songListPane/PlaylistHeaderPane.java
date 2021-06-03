@@ -14,6 +14,7 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 // 播放列表的头部，显示播放列表的基本信息
 public class PlaylistHeaderPane extends Pane {
@@ -104,7 +105,7 @@ public class PlaylistHeaderPane extends Pane {
     private void initFav() {
 
         // 实例化fav
-        fav = new ImageView(new Image(getClass().getResource("../image/fav.png").toExternalForm()));
+        fav = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/fav.png")).toExternalForm()));
 
         // 设置位置和宽高
         fav.setLayoutX(520);
@@ -131,7 +132,7 @@ public class PlaylistHeaderPane extends Pane {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    fav.setImage(new Image(getClass().getResource("../image/fav.png").toExternalForm()));
+                    fav.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/fav.png")).toExternalForm()));
 
                 } else {
 
@@ -141,7 +142,7 @@ public class PlaylistHeaderPane extends Pane {
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    fav.setImage(new Image(getClass().getResource("../image/faved.png").toExternalForm()));
+                    fav.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/faved.png")).toExternalForm()));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -153,7 +154,7 @@ public class PlaylistHeaderPane extends Pane {
     private void initPlayAll() {
 
         // 实例化playAll
-        playAll = new ImageView(new Image(getClass().getResource("../image/playAll.png").toExternalForm()));
+        playAll = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/playAll.png")).toExternalForm()));
 
         // 设置位置和宽高
         playAll.setLayoutX(250);
@@ -190,9 +191,9 @@ public class PlaylistHeaderPane extends Pane {
 
         // 如果该歌单没有被收藏，图片为fav.png，否则为faved.png
         if (!DataAPI.isFavPlaylist(playlist.getPlaylistID())) {
-            fav.setImage(new Image(getClass().getResource("../image/fav.png").toExternalForm()));
+            fav.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/fav.png")).toExternalForm()));
         } else {
-            fav.setImage(new Image(getClass().getResource("../image/faved.png").toExternalForm()));
+            fav.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/faved.png")).toExternalForm()));
         }
     }
 }

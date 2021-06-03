@@ -12,6 +12,7 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 // 歌曲列表SongListPane中的一首歌
 public class SongPane extends Pane {
@@ -148,9 +149,9 @@ public class SongPane extends Pane {
 
         // 实例化favTag
         if (DataAPI.isFavSong(song.getSongID())) {
-            favTag = new ImageView(new Image(getClass().getResource("../image/lovedPlaylist.png").toExternalForm()));
+            favTag = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/lovedPlaylist.png")).toExternalForm()));
         } else {
-            favTag = new ImageView(new Image(getClass().getResource("../image/lovePlaylist.png").toExternalForm()));
+            favTag = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/lovePlaylist.png")).toExternalForm()));
         }
 
         // 设置位置和宽高
@@ -180,7 +181,7 @@ public class SongPane extends Pane {
                 if (DataAPI.isFavSong(song.getSongID())) {
 
                     // 如果在，则取消喜欢，更改图片，让songListPane从playlistListPane中删除这首歌
-                    favTag.setImage(new Image(getClass().getResource("../image/lovePlaylist.png").toExternalForm()));
+                    favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/lovePlaylist.png")).toExternalForm()));
                     try {
                         songListPane.getPlaylistListPane().removeFavSong(song);
                     } catch (SQLException | IOException e) {
@@ -190,7 +191,7 @@ public class SongPane extends Pane {
                 } else {
 
                     // 如果不在，则喜欢，更改图片，让songListPane向playlistListPane中添加这首歌
-                    favTag.setImage(new Image(getClass().getResource("../image/lovedPlaylist.png").toExternalForm()));
+                    favTag.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/lovedPlaylist.png")).toExternalForm()));
                     try {
                         songListPane.getPlaylistListPane().addFavSong(song);
                     } catch (SQLException | IOException e) {
@@ -210,7 +211,7 @@ public class SongPane extends Pane {
     private void initDownload() {
 
         // 实例化download图像
-        download = new ImageView(getClass().getResource("../image/download.png").toExternalForm());
+        download = new ImageView(Objects.requireNonNull(getClass().getResource("../image/download.png")).toExternalForm());
 
         // 设置位置和宽高
         download.setLayoutX(5 * width / 8 - 27.5);

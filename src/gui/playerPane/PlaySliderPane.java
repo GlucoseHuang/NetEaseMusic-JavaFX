@@ -8,6 +8,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+import java.util.Objects;
+
 // 当前播放歌曲的进度条
 public class PlaySliderPane extends Pane {
 
@@ -85,7 +87,7 @@ public class PlaySliderPane extends Pane {
     private void initThumb(double width, double height) {
 
         // 实例化thumb图像
-        thumb = new ImageView(new Image(getClass().getResource("../image/playThumb.png").toExternalForm()));
+        thumb = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/playThumb.png")).toExternalForm()));
 
         // 设置thumb位置和宽高
         thumb.setLayoutY(0);

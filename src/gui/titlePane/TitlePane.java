@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 //最上方的Pane，包含logo，搜索框，关闭按钮，最小化按钮
 public class TitlePane extends Pane {
@@ -65,7 +66,7 @@ public class TitlePane extends Pane {
     private void initLogo() {
 
         // 根据本地文件实例化ImageView
-        logo = new ImageView(new Image(getClass().getResource("../image/logo.png").toExternalForm()));
+        logo = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/logo.png")).toExternalForm()));
 
         // 设置logo位置
         logo.setFitWidth(150);
@@ -87,7 +88,7 @@ public class TitlePane extends Pane {
     private void initClose() {
 
         // 根据本地文件实例化ImageView
-        close = new ImageView(new Image(getClass().getResource("../image/close.png").toExternalForm()));
+        close = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/close.png")).toExternalForm()));
 
         // 设置close图标位置
         close.setFitWidth(20);
@@ -97,13 +98,13 @@ public class TitlePane extends Pane {
 
         // 鼠标进入时，鼠标变成手形，图片变成亮色
         close.setOnMouseEntered(event -> {
-            close.setImage(new Image(getClass().getResource("../image/close_h.png").toExternalForm()));
+            close.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/close_h.png")).toExternalForm()));
             setCursor(Cursor.HAND);
         });
 
         // 鼠标移开时，鼠标变回指针，图片变回暗色
         close.setOnMouseExited(event -> {
-            close.setImage(new Image(getClass().getResource("../image/close.png").toExternalForm()));
+            close.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/close.png")).toExternalForm()));
             setCursor(Cursor.DEFAULT);
         });
     }
@@ -112,7 +113,7 @@ public class TitlePane extends Pane {
     private void initMinimize() {
 
         // 根据本地文件实例化ImageView
-        minimize = new ImageView(new Image(getClass().getResource("../image/minimize.png").toExternalForm()));
+        minimize = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/minimize.png")).toExternalForm()));
 
         // 设置minimize图标位置
         minimize.setFitWidth(20);
@@ -126,19 +127,19 @@ public class TitlePane extends Pane {
         // 鼠标进入时，鼠标变成手形，图片变成亮色
         minimize.setOnMouseEntered(event -> {
             setCursor(Cursor.HAND);
-            minimize.setImage(new Image(getClass().getResource("../image/minimize_h.png").toExternalForm()));
+            minimize.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/minimize_h.png")).toExternalForm()));
         });
 
         // 鼠标移开时，鼠标变回指针，图片变回暗色
         minimize.setOnMouseExited(event -> {
             setCursor(Cursor.DEFAULT);
-            minimize.setImage(new Image(getClass().getResource("../image/minimize.png").toExternalForm()));
+            minimize.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/minimize.png")).toExternalForm()));
         });
     }
 
     // 初始化搜索图标ImageView
     private void initSearch() {
-        search = new ImageView(new Image(getClass().getResource("../image/search.png").toExternalForm()));
+        search = new ImageView(new Image(Objects.requireNonNull(getClass().getResource("../image/search.png")).toExternalForm()));
 
         // 设置搜索图标位置
         search.setFitWidth(20);
@@ -158,13 +159,13 @@ public class TitlePane extends Pane {
         // 鼠标进入时，鼠标变成手形，图片变成亮色
         search.setOnMouseEntered(event -> {
             setCursor(Cursor.HAND);
-            search.setImage(new Image(getClass().getResource("../image/search_h.png").toExternalForm()));
+            search.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/search_h.png")).toExternalForm()));
         });
 
         // 鼠标移开时，鼠标变回指针，图片变回暗色
         search.setOnMouseExited(event -> {
             setCursor(Cursor.DEFAULT);
-            search.setImage(new Image(getClass().getResource("../image/search.png").toExternalForm()));
+            search.setImage(new Image(Objects.requireNonNull(getClass().getResource("../image/search.png")).toExternalForm()));
         });
     }
 
