@@ -44,7 +44,7 @@ MySQL 8.0.19 for Win64
 Eclipse IDE for Java Developers：Oxygen.3a Release (4.7.3a)
 
 ### 环境2
-macOS Big Sur 11.4 (M1)
+macOS Big Sur 11.4 (M1芯片，ARM架构)
 
 IntelliJ IDEA Ultimate 2021.1.2
 
