@@ -91,7 +91,7 @@ public class Main extends Application {
         });
 
         //设置logo和标题
-        titleStage.setTitle(" 网易云音乐");
+        titleStage.setTitle("网易云音乐");
         titleStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("../gui/image/icon.png"))));
     }
 
