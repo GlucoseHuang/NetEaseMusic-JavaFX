@@ -25,6 +25,9 @@ public class PlaySliderPane extends Pane {
     // 要调整进度的mediaPlayer
     private MediaPlayer mediaPlayer;
 
+    // 歌曲时长
+    private Duration duration;
+
     // 构造方法
     public PlaySliderPane(double width, double height) {
 
@@ -113,12 +116,17 @@ public class PlaySliderPane extends Pane {
 
         // 如果需要调整mediaPlayer的播放进度
         if (isSeeking) {
-            mediaPlayer.seek(new Duration(v * mediaPlayer.getMedia().getDuration().toMillis()));
+            mediaPlayer.seek(new Duration(v * duration.toMillis()));
         }
     }
 
     // 设定当前的mediaPlayer
     public void setMediaPlayer(MediaPlayer mediaPlayer) {
         this.mediaPlayer = mediaPlayer;
+    }
+
+    // 由PlayerPane设置当前歌曲时长，以便拖动进度条
+    public void setDuration(Duration duration) {
+        this.duration = duration;
     }
 }

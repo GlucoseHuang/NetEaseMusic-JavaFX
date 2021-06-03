@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -85,6 +85,9 @@ public class PlayerPane extends Pane {
 
     // Player的主Stage
     private final Stage primaryStage;
+
+    // 正在播放的歌曲ID，用于获取Duration
+    private String songID;
 
     // 构造方法
     public PlayerPane(Stage stage, LeftPane leftPane) {
@@ -283,13 +286,18 @@ public class PlayerPane extends Pane {
                     if (needToLoadMediaPlayer) {
 
                         // 设置duration值
-                        duration = mediaPlayer.getMedia().getDuration();
+                        try {
+                            duration = DataAPI.getDuration(songID);
+                        } catch (SQLException | IOException throwables) {
+                            throwables.printStackTrace();
+                        }
 
                         // 设置totalTime标签的文本
                         totalTime.setText(String.format("%02d:%02d", (int) duration.toMinutes(), (int) duration.toSeconds() % 60));
 
-                        // 设置playerSlider的mediaPlayer
+                        // 设置playerSlider的mediaPlayer和songID
                         playSliderPane.setMediaPlayer(mediaPlayer);
+                        playSliderPane.setDuration(duration);
 
                         // 设置volumeSlider的mediaPlayer
                         volumeSliderPane.setMediaPlayer(mediaPlayer);
@@ -404,7 +412,7 @@ public class PlayerPane extends Pane {
         }
 
         // 播放这首歌
-        playSong(musicSrc);
+        playSong(musicSrc, song.getSongID());
     }
 
     // ImageView last的单击事件，播放上一首歌
@@ -426,7 +434,10 @@ public class PlayerPane extends Pane {
     }
 
     // 播放一首歌
-    public void playSong(String musicSrc) throws SQLException {
+    public void playSong(String musicSrc, String songID) throws SQLException {
+
+        // 绑定songID
+        this.songID = songID;
 
         // 如果不需要加载
         if (!needToLoadMediaPlayer) {

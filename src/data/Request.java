@@ -2,6 +2,7 @@ package data;
 
 import basic.Playlist;
 import basic.Song;
+import javafx.util.Duration;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

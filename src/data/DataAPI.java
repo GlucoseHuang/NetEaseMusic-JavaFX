@@ -2,6 +2,7 @@ package data;
 
 import basic.Playlist;
 import basic.Song;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -176,5 +177,10 @@ public class DataAPI {
     // 获取一首歌的mp3源
     public static String getMusicSrc(String songID) throws IOException {
         return Request.getMusicSrcByAPI(songID);
+    }
+
+    // 获取一首歌的时长
+    public static Duration getDuration(String songID) throws SQLException, IOException {
+        return Duration.millis(getSong(songID).getDuration());
     }
 }
